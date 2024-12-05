@@ -176,7 +176,7 @@ nav {
 .favorite-movie-list li {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 333px;
   font-size: large;
