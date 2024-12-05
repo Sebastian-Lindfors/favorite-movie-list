@@ -1,47 +1,53 @@
 import React from "react";
-
+import { NavLink } from "react-router-dom";
+import '../App.css';
 
 const Header = () => {
     const data = [
         {
-            icon: "fas fa-fire-alt",
+            icon: "🔥",
             name: "Trending",
+            link: "/",
         },
         {
-            icon: "fas fa-film",
+            icon: "🎥",
             name: "Movies",
+            link: "/movies",
         },
         {
-            icon: "fas fa-tv",
-            name: "TV Series",
+            icon: "📺",
+            name: "Add Movie",
+            link: "/add-movie",
         },
         {
-            icon: "fas fa-search",
+            icon: "🔍",
             name: "Search",
+            link: "/search",
+        },
+        {
+            icon: "🎲",
+            name: "Generate",
+            link: "/generate",
         },
     ];
+
     return (
-        <>
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-12 text-center bg-dark footer">
-                        {data.map((Val) => {
-                            return (
-                                <>
-                                    <button className="col-sm-2 col-md-2 btn btn-dark">
-                                        <i className={`${Val.icon}`} id="fire"></i>
-                                        <br />
-                                        <h5 className="pt-1 fs-6">{Val.name}</h5>
-                                    </button>
-                                </>
-                            );
-                        })}
-                    </div>
-                </div>
+        <div className="header-container">
+            <div className="header">
+                {data.map((Val, index) => {
+                    return (
+                        <NavLink key={index} to={Val.link} className="header-item">
+                            <button className="header-btn">
+                                <span className="header-icon">{Val.icon}</span>
+                                <br />
+                                <h5 className="header-text">{Val.name}</h5>
+                            </button>
+                        </NavLink>
+                    );
+                })}
             </div>
-        </>
+        </div>
     );
 };
-
 
 export default Header;
