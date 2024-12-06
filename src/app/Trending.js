@@ -28,16 +28,16 @@ const TrendingMovies = () => {
                     <p>No trending movies available</p>
                 ) : (
                     movies.map((movie, index) => (
-                        <div key={index} className="movie">
-                            <NavLink to={`/add-movie/${encodeURIComponent(movie.title)}/Unknown/${movie.release_date}`}>
+                        <NavLink to={`/add-movie/${encodeURIComponent(movie.title)}/Unknown/${movie.release_date}`}>
+                            <div key={index} className="movie">
                                 <img
                                     src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                                     alt={movie.title}
                                     className="movie-image"
                                 />
-                            </NavLink>
-                            <h3>{movie.title}</h3>
-                        </div>
+                                <h3>{movie.title}</h3>
+                            </div>
+                        </NavLink>
                     ))
                 )}
             </div>

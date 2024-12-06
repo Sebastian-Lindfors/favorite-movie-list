@@ -25,7 +25,7 @@ export default function Movies() {
                 <ul>
                     {movies.map((movie, index) => (
                         <li key={index}>
-                            <div>
+                            <div className="favorite-movie-list__info">
                                 <strong>Name:</strong> {movie.name}  <br />
                                 <strong>Director:</strong> {movie.director} <br />
                                 <strong>Date:</strong> {movie.date} <br />

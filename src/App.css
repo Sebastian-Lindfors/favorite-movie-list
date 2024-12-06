@@ -16,6 +16,9 @@ input {
   background-color: black;
 }
 
+.generateButton {
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -47,6 +50,10 @@ nav {
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
+}
+
+a {
+  text-decoration: none;
 }
 
 .movie {
@@ -154,6 +161,8 @@ nav {
   padding: 5px;
   width: 5%;
   border-radius: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .add-movie-article p {
@@ -188,6 +197,14 @@ nav {
 
 .favorite-movie-list img {
   width: 15%;
+}
+
+.favorite-movie-list__info {
+  width: 85%;
+}
+
+.favorite-movie-list__info br {
+  margin-bottom: 5px;
 }
 
 @media (max-width: 768px) {

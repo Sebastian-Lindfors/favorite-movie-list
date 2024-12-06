@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 const GenerateMovies = () => {
 
     const [searchQuery, setSearchQuery] = useState("");
-    const [movies, setMovies] = useState([]);
+    const [movie, setMovie] = useState([]);
 
-    const handleSearch = async (e) => {
+    const handleSearch = async () => {
 
         const query = String.fromCharCode(97 + Math.floor(Math.random() * 26));
 
@@ -23,33 +23,37 @@ const GenerateMovies = () => {
                 (movie) => movie.title && movie.poster_path && movie.release_date
             );
 
-            let num = Math.floor(Math.random() * 20)
-            setMovies(filteredMovies[num]);
+            let num = Math.floor(Math.random() * filteredMovies.length)
+            setMovie(filteredMovies[num]);
         } else {
-            setMovies([]);
+            setMovie([]);
         }
 
     };
 
+    useEffect(() => {
+        handleSearch()
+    }, [])
+
     return (
         <div>
-
-            <button class='generateButton' onClick={handleSearch}>Generate</button>
-
+            {handleSearch}
+            <button class='generateButton' onClick={handleSearch}>Generate New</button>
             <div className="movies">
-                {movies.map((movie) => (
-                    <div className="movie" key={movie.id}>
-                        <NavLink to={`/add-movie/${encodeURIComponent(movie.title)}/Unknown/${movie.release_date}`}>
-                            <img
-                                className="movie-image"
-                                src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
-                                alt={movie.title}
+                <NavLink to={`/add-movie/${encodeURIComponent(movie.title)}/Unknown/${movie.release_date}`}>
+                    <div className="movie">
 
-                            />
-                        </NavLink>
+                        <img
+                            className="movie-image"
+                            src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
+                            alt={movie.title}
+
+                        />
+
                         <h3>{movie.title}</h3>
+
                     </div>
-                ))}
+                </NavLink>
             </div>
         </div>
     );

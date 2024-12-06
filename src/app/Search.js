@@ -38,17 +38,16 @@ const SearchMovies = () => {
             />
             <div className="movies">
                 {movies.map((movie) => (
-                    <div className="movie" key={movie.id}>
-                        <NavLink to={`/add-movie/${encodeURIComponent(movie.title)}/Unknown/${movie.release_date}`}>
+                    <NavLink to={`/add-movie/${encodeURIComponent(movie.title)}/Unknown/${movie.release_date}`}>
+                        <div className="movie" key={movie.id}>
                             <img
                                 className="movie-image"
                                 src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`}
                                 alt={movie.title}
-
                             />
-                        </NavLink>
-                        <h3>{movie.title}</h3>
-                    </div>
+                            <h3>{movie.title}</h3>
+                        </div>
+                    </NavLink>
                 ))}
             </div>
         </div>
